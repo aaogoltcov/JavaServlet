@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 import netology.javaservlet.model.Post;
 
-// Stub
 public class PostRepository {
     public static CopyOnWriteArrayList<Post> posts = new CopyOnWriteArrayList<>();
 
