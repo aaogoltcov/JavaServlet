@@ -1,7 +1,6 @@
 package netology.javaservlet.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import netology.javaservlet.model.Post;
 import netology.javaservlet.repository.PostRepository;
@@ -17,7 +16,7 @@ public class PostService {
     return repository.all();
   }
 
-  public Optional<Post> getById(long id) {
+  public Post getById(long id) {
     return repository.getById(id);
   }
 

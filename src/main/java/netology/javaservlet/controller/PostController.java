@@ -2,7 +2,6 @@ package netology.javaservlet.controller;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.util.Optional;
 
 import com.google.gson.Gson;
 
@@ -12,7 +11,7 @@ import netology.javaservlet.model.Post;
 import netology.javaservlet.service.PostService;
 
 public class PostController {
-    public static final String APPLICATION_JSON = "application/json";
+    private static final String APPLICATION_JSON = "application/json";
     private final PostService service;
 
     public PostController(PostService service) {
@@ -29,11 +28,11 @@ public class PostController {
 
     public void getById(long id, HttpServletResponse response) throws IOException {
         final var gson = new Gson();
-        Optional<Post> post = service.getById(id);
+        Post post = service.getById(id);
 
         response.setContentType(APPLICATION_JSON);
 
-        if (post.isEmpty()) {
+        if (post == null) {
             response.getWriter().print(new NotFoundException(String.format("Can't found post with id: %s", id)));
 
             return;
