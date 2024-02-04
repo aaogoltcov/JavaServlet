@@ -1,12 +1,12 @@
 package netology.javaservlet.servlet;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import netology.javaservlet.controller.PostController;
-import netology.javaservlet.repository.PostRepository;
-import netology.javaservlet.service.PostService;
 
 @WebServlet("/")
 public class MainServlet extends HttpServlet {
@@ -16,9 +16,8 @@ public class MainServlet extends HttpServlet {
 
     @Override
     public void init() {
-        final var repository = new PostRepository();
-        final var service = new PostService(repository);
-        controller = new PostController(service);
+        final var context = new AnnotationConfigApplicationContext("netology");
+        controller = context.getBean(PostController.class);
     }
 
     @Override
