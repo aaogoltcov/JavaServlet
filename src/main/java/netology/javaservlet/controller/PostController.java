@@ -3,8 +3,6 @@ package netology.javaservlet.controller;
 import java.io.IOException;
 import java.io.Reader;
 
-import org.springframework.stereotype.Controller;
-
 import com.google.gson.Gson;
 
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,7 +10,6 @@ import netology.javaservlet.exception.NotFoundException;
 import netology.javaservlet.model.Post;
 import netology.javaservlet.service.PostService;
 
-@Controller
 public class PostController {
     private static final String APPLICATION_JSON = "application/json";
     private final PostService service;

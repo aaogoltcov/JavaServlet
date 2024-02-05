@@ -5,11 +5,8 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.springframework.stereotype.Repository;
-
 import netology.javaservlet.model.Post;
 
-@Repository
 public class PostRepository {
     public static ConcurrentHashMap<Long, Post> posts = new ConcurrentHashMap<>();
     private final AtomicLong lastPostId = new AtomicLong(0);
